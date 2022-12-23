@@ -33,5 +33,15 @@ namespace Ucu.Poo.Defense
         {
             this.items.Remove(item);
         }
+        //Agregue un método AsText para saber el string de la publicación
+        public string AsText()
+        {
+            List<string> StringPublication = new List<string>();
+            foreach (PublicationItem item in items)
+            {
+                StringPublication.Add($"{item.Quantity} de {item.Material.Name}, a ${item.Price}");
+            }
+            return string.Join("\n", StringPublication.ToArray());
+        }
     }
 }

@@ -2,7 +2,7 @@ using System;
 
 namespace Ucu.Poo.Defense
 {
-    public class PublicationDiscount
+    public class PublicationDiscount : IPublicationItem
     {
         private int amount;
 
@@ -14,6 +14,10 @@ namespace Ucu.Poo.Defense
             }
             set
             {
+                if (value >= 0)
+                {
+                    throw new ArgumentException("El descuento debe ser negativo");
+                }
                 this.amount = value;
             }
         }
